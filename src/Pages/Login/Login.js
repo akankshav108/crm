@@ -7,8 +7,8 @@ import {
   Container,
   Label,
   Form,
-  FormFeedback,
-  Alert,
+  // FormFeedback,
+  // Alert,
   Input,
 } from "reactstrap";
 
@@ -18,7 +18,7 @@ import logoEmot from "../../assets/images/emotLogo.png";
 //Link
 import { Link } from "react-router-dom";
 
-const Login = (props) => {
+const Login = () => {
   return (
     <React.Fragment>
       <div className="account-pages my-5 pt-sm-5">

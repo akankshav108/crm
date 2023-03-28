@@ -12,7 +12,7 @@ import "./assets/scss/app.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Login /> },
+  { path: "/", element: <Login/> },
   { path: "/register", element: <Register /> },
   { path: "/forgetpassword", element: <ForgetPassword /> },
 ]);

@@ -7,8 +7,8 @@ import {
   Container,
   Label,
   Form,
-  FormFeedback,
-  Alert,
+  // FormFeedback,
+  // Alert,
   Input,
 } from "reactstrap";
 
@@ -108,7 +108,7 @@ const Register = (props) => {
               <div className="mt-5 text-center">
                 <p>
                   Already have an account ?{" "}
-                  <Link to="/" className="fw-medium text-primary">
+                  <Link to="#" className="fw-medium text-primary">
                     {" "}
                     Login
                   </Link>{" "}
