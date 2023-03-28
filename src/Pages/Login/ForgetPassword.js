@@ -33,7 +33,7 @@ const ForgetPassword = () => {
                       Forget Password
                     </h5>
                     <Link to="/index" className="logo logo-admin">
-                      <img src={logoEmot} height="24" alt="logo" />
+                      <img src={logoSm} height="24" alt="logo" />
                     </Link>
                   </div>
                 </div>
@@ -72,6 +72,7 @@ const ForgetPassword = () => {
                     Sign In here{" "}
                   </Link>{" "}
                 </p>
+
               </div>
             </Col>
           </Row>
