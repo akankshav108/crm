@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/crm/static/css/main.6ab32155.css",
+    "main.js": "/crm/static/js/main.003eac2f.js",
+    "static/js/787.920d0757.chunk.js": "/crm/static/js/787.920d0757.chunk.js",
+    "static/media/emotLogo.png": "/crm/static/media/emotLogo.69ba834c5a41072b6f6d.png",
+    "index.html": "/crm/index.html",
+    "main.6ab32155.css.map": "/crm/static/css/main.6ab32155.css.map",
+    "main.003eac2f.js.map": "/crm/static/js/main.003eac2f.js.map",
+    "787.920d0757.chunk.js.map": "/crm/static/js/787.920d0757.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6ab32155.css",
+    "static/js/main.003eac2f.js"
+  ]
+}
