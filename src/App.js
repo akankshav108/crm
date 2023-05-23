@@ -1,24 +1,25 @@
 import React from "react";
 
 //Router
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import Login from "./Pages/Login/Login";
-import Register from "./Pages/Login/Register";
-import ForgetPassword from "./Pages/Login/ForgetPassword";
+//All Routes
+import { authRoutes } from "./routes/allRoutes";
 
 //styles
-import "./assets/scss/app.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-const router = createBrowserRouter([
-  { path: "/", element: <Login/> },
-  { path: "/register", element: <Register /> },
-  { path: "/forgetpassword", element: <ForgetPassword /> },
-]);
+import "./assets/scss/app.scss";
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <div>
+      <Routes>
+        {authRoutes.map((route, id) => (
+          <Route key={id} path={route.path} element={route.element}></Route>
+        ))}
+      </Routes>
+    </div>
+  );
 }
 
 export default App;

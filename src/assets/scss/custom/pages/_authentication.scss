@@ -5,7 +5,6 @@
 
 // login-1
 
-
 .account-pages {
     .logo-admin {
         position: absolute;
@@ -15,7 +14,7 @@
         width: 74px;
         height: 74px;
         line-height: 74px;
-        background: white;
+        background: rgb(255, 255, 255);
         border-radius: 50%;
         border-bottom: 2px solid black;
       }
@@ -23,51 +22,51 @@
 
 //  login-2
 
-.accountbg {
-    background-color: aquamarine;
-    position: absolute;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    top: 0;
-  }
+// .accountbg {
+//     background-color: aquamarine;
+//     position: absolute;
+//     background-size: cover;
+//     height: 100%;
+//     width: 100%;
+//     top: 0;
+//   }
   
-  .account-page-full {
-    left: 0;
-    position: absolute;
-    height: 100%;
-    margin: 0;
-    width: 420px;
-    background-color: black;
+  // .account-page-full {
+  //   left: 0;
+  //   position: absolute;
+  //   height: 100%;
+  //   margin: 0;
+  //   width: 420px;
+  //   background-color: black;
   
-    .card {
-      border: none;
-    }
-  }
+  //   .card {
+  //     border: none;
+  //   }
+  // }
   
-  .account-copyright {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
+  // .account-copyright {
+  //   position: absolute;
+  //   bottom: 0;
+  //   width: 100%;
+  // }
 
 
 
 // authentication home icon
-.home-btn {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-}
+// .home-btn {
+//     position: absolute;
+//     top: 15px;
+//     right: 25px;
+// }
 
 
 //  Maintenance
 
-.maintenance-img {
-    img {
-        max-width: 320px;
-      }     
-}
+// .maintenance-img {
+//     img {
+//         max-width: 320px;
+//       }     
+// }
 
 
 // Coundown
@@ -75,32 +74,32 @@
 /*------------ Subscriber --------------*/
 
 
-.coming-soon-search-form {
-  input {
-      padding: 15px 20px;
-      width: 100%;
-      color: black;
-      border: 2px solid black;
-      outline: none !important;
-      padding-right: 180px;
-      padding-left: 30px;
-      border-radius: 30px;
-      background-color: black;
-  }
-  button {
-      position: absolute;
-      top: 7px;
-      right: 8px;
-      outline: none !important;
-      border-radius: 30px;
-      padding: 9px 30px;
-  }
-  form {
-      position: relative;
-      max-width: 600px;
-      margin: 0px auto;
-  }
-}
+// .coming-soon-search-form {
+//   input {
+//       padding: 15px 20px;
+//       width: 100%;
+//       color: black;
+//       border: 2px solid black;
+//       outline: none !important;
+//       padding-right: 180px;
+//       padding-left: 30px;
+//       border-radius: 30px;
+//       background-color: black;
+//   }
+//   button {
+//       position: absolute;
+//       top: 7px;
+//       right: 8px;
+//       outline: none !important;
+//       border-radius: 30px;
+//       padding: 9px 30px;
+//   }
+//   form {
+//       position: relative;
+//       max-width: 900px;
+//       margin: 0px auto;
+//   }
+// }
 
 
 

@@ -7,7 +7,7 @@ import {
   Container,
   Label,
   Form,
-  // FormFeedback,
+  FormFeedback,
   // Alert,
   Input,
 } from "reactstrap";
@@ -15,13 +15,35 @@ import {
 // import images
 import logoEmot from "../../assets/images/emotLogo.png";
 
+//formik and yup
+import { useFormik } from "formik";
+import * as yup from "yup";
+
 //Link
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const loginSchema = yup.object({
+    email: yup.string().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,"Invalid email address").required("Please enter your email"),
+    password: yup.string().min(6).required("please enter your password"),
+  });
+
+  const validation = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+
+    validationSchema: loginSchema,
+
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+
   return (
     <React.Fragment>
-      <div className="account-pages my-5 pt-sm-5">
+      <div className="account-pages my-5 pt-sm-2">
         <Container>
           <Row className="justify-content-center">
             <Col md={8} lg={6} xl={4}>
@@ -38,30 +60,67 @@ const Login = () => {
 
                 <CardBody className="p-4">
                   <div className="p-3">
-                    <Form className="mt-4" action="#">
+                    <Form
+                      className="mt-4"
+                      action="#"
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        validation.handleSubmit();
+                        return false;
+                      }}
+                    >
                       <div className="mb-3">
-                        <Label className="form-label" htmlFor="username">
+                        <Label className="form-label" htmlFor="email">
                           Username
                         </Label>
                         <Input
+                          type="email"
                           name="email"
                           className="form-control"
                           placeholder="Enter Username"
-                          type="email"
-                          id="username"
+                          id="email"
+                          value={validation.email}
+                          onChange={validation.handleChange}
+                          onBlur={validation.handleBlur}
+                          invalid={
+                            validation.touched.email && validation.errors.email
+                              ? true
+                              : false
+                          }
                         />
+                        {validation.touched.email && validation.errors.email ? (
+                          <FormFeedback type="invalid">
+                            {validation.errors.email}
+                          </FormFeedback>
+                        ) : null}
                       </div>
 
                       <div className="mb-3">
-                        <Label className="form-label" htmlFor="userpassword">
+                        <Label className="form-label" htmlFor="password">
                           Password
                         </Label>
                         <Input
-                          name="password"
                           type="password"
+                          name="password"
                           className="form-control"
                           placeholder="Enter Password"
+                          id="password"
+                          value={validation.password}
+                          onChange={validation.handleChange}
+                          onBlur={validation.handleBlur}
+                          invalid={
+                            validation.touched.password &&
+                            validation.errors.password
+                              ? true
+                              : false
+                          }
                         />
+                        {validation.touched.password &&
+                        validation.errors.password ? (
+                          <FormFeedback type="invalid">
+                            {validation.errors.password}
+                          </FormFeedback>
+                        ) : null}
                       </div>
 
                       <div className="mb-3 row">
@@ -91,13 +150,15 @@ const Login = () => {
                       </div>
 
                       <div className="mt-2 mb-0 row">
-                        <div className="col-12 mt-4">
-                        </div>
+                        <div className="col-12 mt-4"></div>
                       </div>
 
                       <div className="mt-2 mb-0 row">
                         <div className="col-12 mt-4">
-                          <Link to="/forgetpassword"><i className="mdi mdi-lock"></i> Forgot your password?</Link>
+                          <Link to="/forgetpassword">
+                            <i className="mdi mdi-lock"></i> Forgot your
+                            password?
+                          </Link>
                         </div>
                       </div>
                     </Form>
@@ -107,7 +168,7 @@ const Login = () => {
               <div className="mt-5 text-center">
                 <p>
                   Don&#39;t have an account ?{" "}
-                  <Link to='/register' className="fw-medium text-primary">
+                  <Link to="/register" className="fw-medium text-primary">
                     {" "}
                     Signup now{" "}
                   </Link>{" "}
