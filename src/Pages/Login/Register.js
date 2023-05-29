@@ -12,13 +12,6 @@ import {
   FormFeedback,
 } from "reactstrap";
 
-// import Select from "react-select";
-
-
-// redux
-
-import { useDispatch } from "react-redux";
-
 // import images
 import logoEmot from "../../assets/images/emotLogo.png";
 
@@ -26,8 +19,8 @@ import logoEmot from "../../assets/images/emotLogo.png";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-//Link
-import { Link, useNavigate } from "react-router-dom";
+//React Router
+import { Link } from "react-router-dom";
 
 //dropdown data
 import countryData from "../../common/data/countrydata.json";
@@ -38,9 +31,7 @@ import axios from "../../helpers/api_helper";
 const Register = () => {
   const [cities, setCities] = useState([]);
   const [disabled, setDisabled] = useState(true);
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const [vendorRegistered, setVendorRegisterd] = useState(false);
 
   const handleStateChange = (e) => {
     const stateName = e.target.value;
@@ -107,32 +98,13 @@ const Register = () => {
 
       const postVendorData = async () => {
         try {
-          const res = await axios.post("/register.php", values);
+          const res = await axios.post("/vendor/register", values);
 
-          // const d = '{"result": "200","token":"96e00422f7c7e38a7ecfb5c04c260021"}'
+          console.log(res);
 
-          console.log(res)
-
-          res.data.replace("\n","")
-          console.log(res.data)
-          // const r = JSON.parse(res.data)
-
-        
-          console.log(r);
-
-          // const data = res.json();
-
-
-
-          // console.log(data)
-
-
-          // const fakeToken = "ABCD"
-
-          if(res.status === 200){
-            console.log('yes')
-            // navigate('/dashboard')
-            // dispatch(fakeToken)
+          if (res.status === 200) {
+            console.log(res.data.message);
+            setVendorRegisterd(true);
           }
         } catch (error) {
           console.log(error);
@@ -146,13 +118,15 @@ const Register = () => {
   return (
     <React.Fragment>
       <div className="account-pages my-2 pt-sm-2 ">
-        <Alert
-          color="success"
-          style={{ marginTop: "13px" }}
-          className="mt-1 w-25"
-        >
-          Register User Successful
-        </Alert>
+        {vendorRegistered === true && (
+          <Alert
+            color="success"
+            style={{ marginTop: "13px" }}
+            className="mt-1 w-100"
+          >
+           Vendor Registration Successful!
+          </Alert>
+        )}
         <Container>
           <Row className="justify-content-center">
             <Col md={8} lg={6} xl={5}>

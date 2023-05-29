@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+//React Router
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
-}
+  const token = useSelector((state) => state.auth.token);
 
-export default Dashboard
+  useEffect(() => {
+    console.log(token);
+  }, [token]);
+
+  return (
+    <React.Fragment>
+      <div>Dashboard</div>
+      <Link to={"/register"}>Register Vendor</Link>
+    </React.Fragment>
+  );
+};
+
+export default Dashboard;

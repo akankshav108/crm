@@ -19,12 +19,31 @@ import logoEmot from "../../assets/images/emotLogo.png";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-//Link
-import { Link } from "react-router-dom";
+// redux
+import { useDispatch } from "react-redux";
+import { storeToken } from "../../store/auth/auth-slice";
+
+
+//React Router
+import { Link, useNavigate } from "react-router-dom";
+
+//axios
+import axios from "../../helpers/api_helper";
 
 const Login = () => {
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+
   const loginSchema = yup.object({
-    email: yup.string().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,"Invalid email address").required("Please enter your email"),
+    email: yup
+      .string()
+      .matches(
+        /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        "Invalid email address"
+      )
+      .required("Please enter your email"),
     password: yup.string().min(6).required("please enter your password"),
   });
 
@@ -38,6 +57,21 @@ const Login = () => {
 
     onSubmit: (values) => {
       console.log(values);
+
+      const getAuth = async () => {
+        try {
+          const res = await axios.post("/token/obtain", values);
+
+          if(res.status === 200){
+            console.log('login sucessful')
+            dispatch(storeToken(res.data.token));
+            navigate("/dashboard")
+          } 
+        } catch (error) {
+          console.log(error)
+        }
+      };
+      getAuth();
     },
   });
 
