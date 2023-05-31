@@ -23,7 +23,6 @@ import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { storeToken } from "../../store/auth/auth-slice";
 
-
 //React Router
 import { Link, useNavigate } from "react-router-dom";
 
@@ -31,10 +30,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "../../helpers/api_helper";
 
 const Login = () => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 
   const loginSchema = yup.object({
     email: yup
@@ -62,13 +59,13 @@ const Login = () => {
         try {
           const res = await axios.post("/token/obtain", values);
 
-          if(res.status === 200){
-            console.log('login sucessful')
+          if (res.status === 200) {
+            console.log("login sucessful");
             dispatch(storeToken(res.data.token));
-            navigate("/dashboard")
-          } 
+            navigate("/dashboard");
+          }
         } catch (error) {
-          console.log(error)
+          console.log(error);
         }
       };
       getAuth();
